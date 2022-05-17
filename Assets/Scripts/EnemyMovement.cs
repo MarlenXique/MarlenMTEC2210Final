@@ -20,14 +20,6 @@ public class EnemyMovement : MonoBehaviour
     }
 
 
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        float yValue = speed * Time.deltaTime;
-        transform.Translate(0, yValue, 0);
-        if (collision.gameObject.tag == "Wall")
-        {
-            Destroy(gameObject);
-        }
-    }
+    
 
 }
