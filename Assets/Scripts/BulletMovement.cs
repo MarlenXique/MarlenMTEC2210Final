@@ -11,7 +11,7 @@ public class BulletMovement : MonoBehaviour
 
 
 
-    // Update is called once per frame
+   
     private void Update()
     {
         this.transform.position += this.direction * this.speed * Time.deltaTime;

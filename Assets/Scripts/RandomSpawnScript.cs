@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class RandomSpawnScript : MonoBehaviour
 {
@@ -8,7 +9,14 @@ public class RandomSpawnScript : MonoBehaviour
     public float spawnRate= 1.0f;
     float nextSpawnTime = 5.0f;
     int whatToSpawn;
+
+    public TextMeshPro timertext;
+
+
     
+
+
+
 
     private void Update()
     {
@@ -39,6 +47,8 @@ public class RandomSpawnScript : MonoBehaviour
             nextSpawnTime = Time.time + spawnRate; 
         }
     }
+
+
 
 
 }
