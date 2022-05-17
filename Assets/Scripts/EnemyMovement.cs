@@ -5,21 +5,25 @@ using UnityEngine;
 public class EnemyMovement : MonoBehaviour
 {
 
-    public float speed = 5.0f;
+    public float speed = -1.0f;
 
-    
-    void Start()
-    {
-        
-    }
 
-    
     void Update()
     {
-        
+        float yValue = speed * Time.deltaTime;
+        transform.Translate(0, yValue, 0);
+
+
     }
 
 
-    
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.tag == "Wall")
+        {
+            Destroy(gameObject);
+        }
+    }
+
 
 }

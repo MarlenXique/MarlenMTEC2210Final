@@ -8,6 +8,7 @@ public class RandomSpawnScript : MonoBehaviour
     public float spawnRate= 1.0f;
     float nextSpawnTime = 5.0f;
     int whatToSpawn;
+    
 
     private void Update()
     {
