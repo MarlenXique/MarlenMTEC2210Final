@@ -4,26 +4,45 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
+    public BulletMovement bulletPrefab;
     public float speed = 5.0f;
+    private bool bulletActive;
 
-
-
-    // Update is called once per frame
-    void Update()
+    private void Update()
     {
-        float xMove = Input.GetAxisRaw("Horizontal");
-        //float yMove = Input.GetAxisRaw("Vertical");
+        if (Input.GetKey(KeyCode.A))
+        {
+            this.transform.position += Vector3.left * this.speed * Time.deltaTime;
 
-        float xMovement = xMove * speed * Time.deltaTime;
-        //float yMovement = yMove * speed * Time.deltaTime;
-
-
-
-        transform.Translate(xMovement, 0, 0);
-
+        }else if (Input.GetKey(KeyCode.D))
+        {
+            this.transform.position += Vector3.right * this.speed * Time.deltaTime;
+        }
 
 
+        if(Input.GetKeyDown(KeyCode.Space))
+        {
 
+            Shoot();
 
+        }
     }
+
+    private void Shoot()
+    {
+        if (!bulletActive)
+        {
+            BulletMovement projectile = Instantiate(this.bulletPrefab, this.transform.position, Quaternion.identity);
+            projectile.destroyed += BulletDestroyed;
+            bulletActive = true;
+
+        }     
+    }
+    private void BulletDestroyed()
+    {
+        bulletActive = false;
+    }
+
+
 }
+    
