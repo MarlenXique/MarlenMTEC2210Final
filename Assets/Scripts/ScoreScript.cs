@@ -9,6 +9,14 @@ public class ScoreScript : MonoBehaviour
     public static int scoreValue = 0;
     Text score;
 
+    void Awake()
+    {
+        score = GetComponent<Text>();
+        scoreValue = 0;
+    }
+
+
+
     void Start()
     {
         score = GetComponent<Text>();
@@ -23,4 +31,6 @@ public class ScoreScript : MonoBehaviour
 
 
     }
+
+
 }

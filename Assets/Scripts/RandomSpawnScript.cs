@@ -30,18 +30,23 @@ public class RandomSpawnScript : MonoBehaviour
             {
                 case 1:
                     Instantiate(prefab1, transform.position, Quaternion.identity);
+
                     break;
                 case 2:
                     Instantiate(prefab2, transform.position, Quaternion.identity);
+
                     break;
                 case 3:
                     Instantiate(prefab3, transform.position, Quaternion.identity);
+
                     break;
                 case 4:
                     Instantiate(prefab4, transform.position, Quaternion.identity);
+
                     break;
                 case 5:
                     Instantiate(prefab5, transform.position, Quaternion.identity);
+
                     break;
             }
             nextSpawnTime = Time.time + spawnRate; 

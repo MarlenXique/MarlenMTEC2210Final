@@ -11,17 +11,21 @@ public class PlayerMovement : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKey(KeyCode.A))
-        {
-            this.transform.position += Vector3.left * this.speed * Time.deltaTime;
 
-        }else if (Input.GetKey(KeyCode.D))
+
+        float xMove = Input.GetAxisRaw("Horizontal");
+        float xMovement = xMove * speed * Time.deltaTime;
+
+        transform.Translate(xMovement, 0, 0);
+
+
+        if (Input.GetKey(KeyCode.Return))
         {
-            this.transform.position += Vector3.right * this.speed * Time.deltaTime;
+            
         }
 
 
-        if(Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Space))
         {
 
             Shoot();
