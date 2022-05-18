@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+ 
 
 public class EnemyMovement : MonoBehaviour
 {
@@ -22,6 +22,7 @@ public class EnemyMovement : MonoBehaviour
     {
         if (collision.gameObject.tag == "Wall")
         {
+            ScoreScript.scoreValue += -10;
             Destroy(gameObject);
         }
     }
@@ -30,6 +31,7 @@ public class EnemyMovement : MonoBehaviour
     {
         if (other.gameObject.layer == LayerMask.NameToLayer("Bullet"))
         {
+            ScoreScript.scoreValue += 10;
             Destroy(gameObject);
         }
     }
