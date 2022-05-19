@@ -9,6 +9,15 @@ public class PlayerMovement : MonoBehaviour
     public float speed = 5.0f;
     private bool bulletActive;
 
+    private AudioSource bullet;
+
+
+    void Start()
+    {
+        bullet = GetComponent<AudioSource>();
+    }
+
+
     private void Update()
     {
 
@@ -19,9 +28,9 @@ public class PlayerMovement : MonoBehaviour
         transform.Translate(xMovement, 0, 0);
 
 
-        if (Input.GetKey(KeyCode.Return))
+        if (Input.GetKeyDown(KeyCode.Return))
         {
-            
+            //speed += 10f;
         }
 
 
@@ -37,6 +46,7 @@ public class PlayerMovement : MonoBehaviour
     {
         if (!bulletActive)
         {
+            bullet.PlayOneShot(bullet.clip);
             BulletMovement projectile = Instantiate(this.bulletPrefab, this.transform.position, Quaternion.identity);
             projectile.destroyed += BulletDestroyed;
             bulletActive = true;
